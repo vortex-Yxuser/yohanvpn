@@ -13,26 +13,26 @@ plugins {
 android {
     // Application namespace
     namespace 'com.yohan.vpn'
-
-    // Compile SDK version - using the latest stable version
-    compileSdk 34
+    
+    // Compile SDK version - using stable version available in CI
+    compileSdk 33
 
     defaultConfig {
         // Unique application identifier
         applicationId "com.yohan.vpn"
-
+        
         // Minimum SDK version - Android 7.0 (API 24) as requested
         minSdk 24
-
+        
         // Target SDK version
-        targetSdk 34
-
+        targetSdk 33
+        
         // Application version
         versionCode 1
         versionName "1.0.0"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
-
+        
         // Vector drawable support for older devices
         vectorDrawables {
             useSupportLibrary true
@@ -50,23 +50,23 @@ android {
             debuggable true
         }
     }
-
+    
     compileOptions {
         // Java 17 for modern language features
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
+    
     kotlinOptions {
         jvmTarget = '17'
     }
-
+    
     buildFeatures {
         // Enable View Binding for type-safe view access
         viewBinding true
     }
-
-    packaging {
+    
+    packagingOptions {
         resources {
             excludes += '/META-INF/{AL2.0,LGPL2.1}'
             // Exclude BouncyCastle license files to avoid packaging conflicts
@@ -80,63 +80,63 @@ dependencies {
     // ============================================
     // Android Core Libraries
     // ============================================
-
+    
     // AndroidX Core library
     implementation 'androidx.core:core-ktx:1.12.0'
-
+    
     // AppCompat for backward compatibility
     implementation 'androidx.appcompat:appcompat:1.6.1'
-
+    
     // Material Design 3 Components
     implementation 'com.google.android.material:material:1.11.0'
-
+    
     // ConstraintLayout for flexible UI layouts
     implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
-
+    
     // Lifecycle components for ViewModel and LiveData
     implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.7.0'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.7.0'
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.7.0'
-
+    
     // Activity KTX for activity-related extensions
     implementation 'androidx.activity:activity-ktx:1.8.2'
-
+    
     // Fragment KTX for fragment-related extensions
     implementation 'androidx.fragment:fragment-ktx:1.6.2'
-
+    
     // ============================================
     // SSH Libraries
     // ============================================
-
+    
     // SSHJ - SSH library for Java that supports OpenSSH keys
     // This is the core library for SSH connectivity
     implementation 'com.jcraft:jsch:0.1.55'
-
+    
     // Alternative: SSHJ library (uncomment if preferred)
     // implementation 'com.hierynomus:sshj:0.37.0'
-
+    
     // BouncyCastle for cryptographic operations
     // Required for parsing OpenSSH private keys
     implementation 'org.bouncycastle:bcprov-jdk15on:1.70'
-
+    
     // ============================================
     // Networking Libraries
     // ============================================
-
+    
     // OkHttp for HTTP operations (used for payload sending)
     implementation 'com.squareup.okhttp3:okhttp:4.12.0'
-
+    
     // ============================================
     // Coroutines
     // ============================================
-
+    
     // Kotlin Coroutines for asynchronous programming
     implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.3'
-
+    
     // ============================================
     // Testing Libraries
     // ============================================
-
+    
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
