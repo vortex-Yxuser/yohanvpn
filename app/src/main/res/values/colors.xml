@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Yohan VPN - Color Resources
+
+    Material Design 3 color palette for the application.
+-->
+<resources>
+    <!-- Primary Colors -->
+    <color name="primary">#006C4C</color>
+    <color name="on_primary">#FFFFFF</color>
+    <color name="primary_container">#89F8C7</color>
+    <color name="on_primary_container">#002114</color>
+
+    <!-- Secondary Colors -->
+    <color name="secondary">#4D6357</color>
+    <color name="on_secondary">#FFFFFF</color>
+    <color name="secondary_container">#CFE9D9</color>
+    <color name="on_secondary_container">#0A1F16</color>
+
+    <!-- Tertiary Colors -->
+    <color name="tertiary">#3D6373</color>
+    <color name="on_tertiary">#FFFFFF</color>
+    <color name="tertiary_container">#C1E8FB</color>
+    <color name="on_tertiary_container">#001F29</color>
+
+    <!-- Error Colors -->
+    <color name="error">#BA1A1A</color>
+    <color name="on_error">#FFFFFF</color>
+    <color name="error_container">#FFDAD6</color>
+    <color name="on_error_container">#410002</color>
+
+    <!-- Surface Colors -->
+    <color name="surface">#FBFDF9</color>
+    <color name="on_surface">#191C1A</color>
+    <color name="surface_variant">#DCE5DD</color>
+    <color name="on_surface_variant">#414942</color>
+    <color name="outline">#717972</color>
+
+    <!-- Background -->
+    <color name="background">#FBFDF9</color>
+    <color name="on_background">#191C1A</color>
+
+    <!-- Status Colors -->
+    <color name="status_connected">#006C4C</color>
+    <color name="status_connecting">#B48800</color>
+    <color name="status_disconnected">#717972</color>
+    <color name="status_error">#BA1A1A</color>
+
+    <!-- Custom Colors -->
+    <color name="log_background">#1C1C1C</color>
+    <color name="log_text">#E0E0E0</color>
+    <color name="log_timestamp">#9E9E9E</color>
+    <color name="card_background">#FFFFFF</color>
+    <color name="divider">#E0E0E0</color>
+</resources>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Data extraction rules for Android 12+ backup
+-->
+<data-extraction-rules>
+    <cloud-backup>
+        <include domain="sharedpref" path="."/>
+        <exclude domain="sharedpref" path="yohan_vpn_secure_prefs.xml"/>
+    </cloud-backup>
+</data-extraction-rules>

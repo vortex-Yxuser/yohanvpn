@@ -1,0 +1,20 @@
+pluginManagement {
+    repositories {
+        google()
+        mavenCentral()
+        gradlePluginPortal()
+    }
+}
+dependencyResolutionManagement {
+    repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    repositories {
+        google()
+        mavenCentral()
+        // JitPack repository for additional libraries
+        maven { url 'https://jitpack.io' }
+    }
+}
+
+// Project name
+rootProject.name = "YohanVPN"
+include ':app'

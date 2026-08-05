@@ -1,0 +1,9 @@
+// Top-level build file for Yohan VPN Project
+// This file configures the build environment for the entire project
+
+plugins {
+    // Android Gradle Plugin version compatible with Android Studio Hedgehog and later
+    id 'com.android.application' version '8.2.0' apply false
+    // Kotlin Android Plugin
+    id 'org.jetbrains.kotlin.android' version '1.9.20' apply false
+}

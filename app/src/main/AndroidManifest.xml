@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Yohan VPN - Android Manifest
+
+    This manifest defines the application structure, permissions, and components.
+    It includes VPN service declarations and required permissions for network operations.
+-->
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- ============================================ -->
+    <!-- Permissions -->
+    <!-- ============================================ -->
+
+    <!-- Internet access for VPN and SSH connections -->
+    <uses-permission android:name="android.permission.INTERNET" />
+
+    <!-- Network state monitoring -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
+    <!-- WiFi state for network information -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+
+    <!-- Foreground service for persistent VPN connection -->
+    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+
+    <!-- Post notifications for Android 13+ -->
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <!-- Wake lock to keep connection alive -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+
+    <!-- ============================================ -->
+    <!-- Application -->
+    <!-- ============================================ -->
+
+    <application
+        android:name=".YohanVpnApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.YohanVPN"
+        android:usesCleartextTraffic="true"
+        tools:targetApi="34">
+
+        <!-- ============================================ -->
+        <!-- Main Activity -->
+        <!-- ============================================ -->
+
+        <activity
+            android:name=".MainActivity"
+            android:exported="true"
+            android:theme="@style/Theme.YohanVPN"
+            android:windowSoftInputMode="adjustResize">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <!-- ============================================ -->
+        <!-- VPN Service -->
+        <!-- ============================================ -->
+
+        <!-- Yohan VPN Service - Core service that manages the VPN tunnel -->
+        <service
+            android:name=".service.YohanVpnService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="dataSync"
+            android:permission="android.permission.BIND_VPN_SERVICE">
+            <intent-filter>
+                <action android:name="android.net.VpnService" />
+            </intent-filter>
+        </service>
+
+        <!-- SSH Connection Service - Manages SSH connections in the background -->
+        <service
+            android:name=".service.SshConnectionService"
+            android:enabled="true"
+            android:exported="false"
+            android:foregroundServiceType="dataSync" />
+
+    </application>
+
+</manifest>

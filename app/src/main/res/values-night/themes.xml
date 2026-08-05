@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Yohan VPN - Theme Resources (Dark)
+
+    Material Design 3 dark theme configuration for the application.
+-->
+<resources>
+
+    <style name="Theme.YohanVPN" parent="Theme.Material3.Dark.NoActionBar">
+        <!-- Primary brand color -->
+        <item name="colorPrimary">#6CDBA8</item>
+        <item name="colorOnPrimary">#003826</item>
+        <item name="colorPrimaryContainer">#005139</item>
+        <item name="colorOnPrimaryContainer">#89F8C7</item>
+
+        <!-- Secondary brand color -->
+        <item name="colorSecondary">#B3CCBD</item>
+        <item name="colorOnSecondary">#1F352A</item>
+        <item name="colorSecondaryContainer">#354B40</item>
+        <item name="colorOnSecondaryContainer">#CFE9D9</item>
+
+        <!-- Tertiary brand color -->
+        <item name="colorTertiary">#A5CCDE</item>
+        <item name="colorOnTertiary">#073543</item>
+        <item name="colorTertiaryContainer">#254B5A</item>
+        <item name="colorOnTertiaryContainer">#C1E8FB</item>
+
+        <!-- Error color -->
+        <item name="colorError">#FFB4AB</item>
+        <item name="colorOnError">#690005</item>
+        <item name="colorErrorContainer">#93000A</item>
+        <item name="colorOnErrorContainer">#FFDAD6</item>
+
+        <!-- Surface colors -->
+        <item name="android:colorBackground">#191C1A</item>
+        <item name="colorOnBackground">#E1E3DF</item>
+        <item name="colorSurface">#191C1A</item>
+        <item name="colorOnSurface">#E1E3DF</item>
+        <item name="colorSurfaceVariant">#414942</item>
+        <item name="colorOnSurfaceVariant">#C1C9C1</item>
+        <item name="colorOutline">#8B938B</item>
+
+        <!-- Status bar -->
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar">false</item>
+
+        <!-- Navigation bar -->
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:windowLightNavigationBar">false</item>
+
+        <!-- Enable edge-to-edge -->
+        <item name="android:windowTranslucentStatus">false</item>
+        <item name="android:windowTranslucentNavigation">false</item>
+    </style>
+
+</resources>

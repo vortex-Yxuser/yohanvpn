@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+    Yohan VPN - String Resources
+
+    Contains all user-facing text strings used throughout the application.
+-->
+<resources>
+    <!-- Application Name -->
+    <string name="app_name">Yohan VPN</string>
+
+    <!-- Connection Status -->
+    <string name="status_disconnected">Disconnected</string>
+    <string name="status_connecting">Connecting…</string>
+    <string name="status_connected">Connected</string>
+    <string name="status_disconnecting">Disconnecting…</string>
+    <string name="status_error">Connection Error</string>
+    <string name="status_reconnecting">Reconnecting…</string>
+
+    <!-- Labels -->
+    <string name="label_host">Host</string>
+    <string name="label_port">Port</string>
+    <string name="label_username">Username</string>
+    <string name="label_private_key">Private Key (OpenSSH)</string>
+    <string name="label_payload">HTTP Payload</string>
+    <string name="label_logs">Connection Logs</string>
+    <string name="label_status">Status</string>
+    <string name="label_server_info">Server Information</string>
+    <string name="label_connection_settings">Connection Settings</string>
+
+    <!-- Hints -->
+    <string name="hint_host">Enter SSH server hostname or IP</string>
+    <string name="hint_port">22</string>
+    <string name="hint_username">Enter SSH username</string>
+    <string name="hint_private_key">Paste your OpenSSH private key here (BEGIN OPENSSH PRIVATE KEY...)</string>
+    <string name="hint_payload">Enter HTTP payload to send before tunnel</string>
+
+    <!-- Buttons -->
+    <string name="btn_connect">Connect</string>
+    <string name="btn_disconnect">Disconnect</string>
+    <string name="btn_clear_logs">Clear Logs</string>
+    <string name="btn_save_config">Save Configuration</string>
+    <string name="btn_load_config">Load Configuration</string>
+
+    <!-- Notifications -->
+    <string name="notification_channel_name">VPN Service</string>
+    <string name="notification_channel_description">Yohan VPN connection status</string>
+    <string name="notification_title_connected">Yohan VPN - Connected</string>
+    <string name="notification_title_connecting">Yohan VPN - Connecting</string>
+    <string name="notification_content_connected">Secure tunnel active</string>
+    <string name="notification_content_connecting">Establishing secure connection…</string>
+
+    <!-- Error Messages -->
+    <string name="error_empty_host">Please enter a host address</string>
+    <string name="error_empty_username">Please enter a username</string>
+    <string name="error_empty_key">Please enter a private key</string>
+    <string name="error_invalid_port">Please enter a valid port number (1-65535)</string>
+    <string name="error_connection_failed">Connection failed: %1$s</string>
+    <string name="error_auth_failed">Authentication failed. Please check your credentials.</string>
+    <string name="error_key_invalid">Invalid private key format</string>
+    <string name="error_vpn_permission_denied">VPN permission denied by user</string>
+    <string name="error_no_internet">No internet connection available</string>
+
+    <!-- Success Messages -->
+    <string name="success_connected">Successfully connected to server</string>
+    <string name="success_disconnected">Disconnected from server</string>
+    <string name="success_config_saved">Configuration saved successfully</string>
+    <string name="success_config_loaded">Configuration loaded successfully</string>
+
+    <!-- Log Messages -->
+    <string name="log_starting">Starting Yohan VPN…</string>
+    <string name="log_connecting_ssh">Connecting to SSH server: %1$s:%2$d</string>
+    <string name="log_authenticating">Authenticating with private key…</string>
+    <string name="log_auth_success">Authentication successful</string>
+    <string name="log_sending_payload">Sending HTTP payload…</string>
+    <string name="log_payload_sent">Payload sent successfully</string>
+    <string name="log_creating_tunnel">Creating SSH tunnel…</string>
+    <string name="log_tunnel_created">SSH tunnel established</string>
+    <string name="log_vpn_established">VPN tunnel established</string>
+    <string name="log_disconnecting">Disconnecting…</string>
+    <string name="log_disconnected">Disconnected from server</string>
+    <string name="log_reconnecting">Reconnecting in %1$d seconds…</string>
+    <string name="log_error">Error: %1$s</string>
+
+    <!-- Menu -->
+    <string name="menu_settings">Settings</string>
+    <string name="menu_about">About</string>
+    <string name="menu_help">Help</string>
+
+    <!-- About Dialog -->
+    <string name="about_title">About Yohan VPN</string>
+    <string name="about_version">Version %1$s</string>
+    <string name="about_description">Secure SSH-based VPN tunnel application with OpenSSH key support.</string>
+    <string name="about_copyright">© 2024 Yohan VPN. All rights reserved.</string>
+
+    <!-- Toast Messages -->
+    <string name="toast_copied">Copied to clipboard</string>
+    <string name="toast_permission_required">Permission required for VPN functionality</string>
+</resources>

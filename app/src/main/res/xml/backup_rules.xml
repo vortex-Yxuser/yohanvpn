@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+   Backup rules for Android 11 and below
+-->
+<full-backup-content>
+    <include domain="sharedpref" path="."/>
+    <exclude domain="sharedpref" path="yohan_vpn_secure_prefs.xml"/>
+</full-backup-content>
