@@ -113,7 +113,12 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun registerReceivers() {
-        registerReceiver(connectionStatusReceiver, IntentFilter(Constants.ACTION_CONNECTION_STATUS))
+        val filter = IntentFilter(Constants.ACTION_CONNECTION_STATUS)
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.TIRAMISU) {
+            registerReceiver(connectionStatusReceiver, filter, Context.RECEIVER_NOT_EXPORTED)
+        } else {
+            registerReceiver(connectionStatusReceiver, filter)
+        }
     }
 
     private fun validateInputs(): Boolean {
@@ -123,11 +128,21 @@ class MainActivity : AppCompatActivity() {
         val portStr = binding.etPort.text.toString().trim()
 
         return when {
-            host.isEmpty() -> { binding.tilHost.error = getString(R.string.error_empty_host); false }
-            username.isEmpty() -> { binding.tilUsername.error = getString(R.string.error_empty_username); false }
-            privateKey.isEmpty() -> { binding.tilPrivateKey.error = getString(R.string.error_empty_key); false }
+            host.isEmpty() -> {
+                binding.tilHost.error = getString(R.string.error_empty_host)
+                false
+            }
+            username.isEmpty() -> {
+                binding.tilUsername.error = getString(R.string.error_empty_username)
+                false
+            }
+            privateKey.isEmpty() -> {
+                binding.tilPrivateKey.error = getString(R.string.error_empty_key)
+                false
+            }
             portStr.isEmpty() || portStr.toIntOrNull() == null || portStr.toInt() !in 1..65535 -> {
-                binding.tilPort.error = getString(R.string.error_invalid_port); false
+                binding.tilPort.error = getString(R.string.error_invalid_port)
+                false
             }
             else -> {
                 binding.tilHost.error = null
@@ -191,8 +206,14 @@ class MainActivity : AppCompatActivity() {
             action = Constants.ACTION_DISCONNECT
         }
         startService(vpnIntent)
-        if (sshServiceBound) { unbindService(sshServiceConnection); sshServiceBound = false }
-        if (vpnServiceBound) { unbindService(vpnServiceConnection); vpnServiceBound = false }
+        if (sshServiceBound) {
+            unbindService(sshServiceConnection)
+            sshServiceBound = false
+        }
+        if (vpnServiceBound) {
+            unbindService(vpnServiceConnection)
+            vpnServiceBound = false
+        }
     }
 
     private fun updateConnectionState(state: ConnectionState) {
@@ -250,8 +271,10 @@ class MainActivity : AppCompatActivity() {
             vpnService = (service as YohanVpnService.LocalBinder).getService()
             vpnServiceBound = true
         }
+
         override fun onServiceDisconnected(name: ComponentName?) {
-            vpnService = null; vpnServiceBound = false
+            vpnService = null
+            vpnServiceBound = false
         }
     }
 
@@ -260,14 +283,19 @@ class MainActivity : AppCompatActivity() {
             sshService = (service as SshConnectionService.LocalBinder).getService()
             sshServiceBound = true
         }
+
         override fun onServiceDisconnected(name: ComponentName?) {
-            sshService = null; sshServiceBound = false
+            sshService = null
+            sshServiceBound = false
         }
     }
 
     override fun onDestroy() {
         super.onDestroy()
-        unregisterReceiver(connectionStatusReceiver)
+        try {
+            unregisterReceiver(connectionStatusReceiver)
+        } catch (_: Exception) {
+        }
         logger.removeLogListener()
         if (vpnServiceBound) unbindService(vpnServiceConnection)
         if (sshServiceBound) unbindService(sshServiceConnection)
