@@ -205,7 +205,7 @@ class SshManager(private val logger: Logger) {
             while (attempt < Constants.MAX_RECONNECT_ATTEMPTS && isActive) {
                 attempt++
                 callback?.onReconnecting(attempt, Constants.MAX_RECONNECT_ATTEMPTS)
-                logger.info("Reconnection attempt \( attempt/ \){Constants.MAX_RECONNECT_ATTEMPTS} in ${delayMs}ms...")
+                logger.info("Reconnection attempt $attempt/${Constants.MAX_RECONNECT_ATTEMPTS} in ${delayMs}ms...")
 
                 delay(delayMs)
 
