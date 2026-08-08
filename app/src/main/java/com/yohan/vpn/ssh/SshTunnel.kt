@@ -126,7 +126,7 @@ class SshTunnel(private val logger: Logger) {
                     0x01 -> { // IPv4
                         val addr = ByteArray(4)
                         readFully(input, addr)
-                        targetHost = "\( {addr[0].toInt() and 0xFF}. \){addr[1].toInt() and 0xFF}.\( {addr[2].toInt() and 0xFF}. \){addr[3].toInt() and 0xFF}"
+                        targetHost = "${addr[0].toInt() and 0xFF}.${addr[1].toInt() and 0xFF}.${addr[2].toInt() and 0xFF}.${addr[3].toInt() and 0xFF}"
                         val portBytes = ByteArray(2)
                         readFully(input, portBytes)
                         targetPort = ((portBytes[0].toInt() and 0xFF) shl 8) or (portBytes[1].toInt() and 0xFF)
