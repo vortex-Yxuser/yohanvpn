@@ -1,0 +1,45 @@
+workflows:
+  android-build:
+    name: Android Build
+    instance_type: mac_mini_m2
+    environment:
+      android_signing:
+        - keystore_reference
+      groups:
+        - google_play
+      vars:
+        PACKAGE_NAME: "com.yohan.vpn"
+    scripts:
+      - name: Set Android SDK
+        script: |
+          export ANDROID_HOME=/usr/local/share/android-sdk
+          export ANDROID_SDK_ROOT=/usr/local/share/android-sdk
+          export PATH=$PATH:$ANDROID_HOME/cmdline-tools/latest/bin:$ANDROID_HOME/platform-tools
+      
+      - name: Grant Gradle permissions
+        script: chmod +x ./gradlew
+      
+      - name: Build Android APK
+        script: |
+          ./gradlew assembleRelease \
+            -Pandroid.injected.signing.store.file=$CM_KEYSTORE_PATH \
+            -Pandroid.injected.signing.store.password=$CM_KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$CM_KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$CM_KEY_PASSWORD
+      
+      - name: Build Android AAB
+        script: |
+          ./gradlew bundleRelease \
+            -Pandroid.injected.signing.store.file=$CM_KEYSTORE_PATH \
+            -Pandroid.injected.signing.store.password=$CM_KEYSTORE_PASSWORD \
+            -Pandroid.injected.signing.key.alias=$CM_KEY_ALIAS \
+            -Pandroid.injected.signing.key.password=$CM_KEY_PASSWORD
+    
+    artifacts:
+      - app/build/outputs/**/*.apk
+      - app/build/outputs/**/*.aab
+    
+    publishing:
+      email:
+        recipients:
+          - seifszx@gmail.com
